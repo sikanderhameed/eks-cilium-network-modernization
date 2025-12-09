@@ -1,0 +1,22 @@
+apiVersion: "cilium.io/v2"
+kind: CiliumNetworkPolicy
+metadata:
+  name: "l7-visibility-demo"
+spec:
+  endpointSelector:
+    matchLabels:
+      app: "backend-service"
+  ingress:
+  - fromEndpoints:
+    - matchLabels:
+        app: "frontend-service"
+    toPorts:
+    - ports:
+      - port: "80"
+        protocol: TCP
+      rules:
+        http:
+        - method: "GET"
+          path: "/public"
+        - method: "POST"
+          path: "/submit"

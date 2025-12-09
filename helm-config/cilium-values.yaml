@@ -1,0 +1,16 @@
+eni:
+  enabled: true
+ipam:
+  mode: eni
+kubeProxyReplacement: true
+routingMode: native
+tunnel: disabled
+autoDirectNodeRoutes: true
+k8sServiceHost: <API_SERVER_ENDPOINT>
+k8sServicePort: 443
+hubble:
+  enabled: true
+  relay:
+    enabled: true
+  ui:
+    enabled: true
